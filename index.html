@@ -6,24 +6,44 @@
     <title>Learning Vue</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <style>
-      .box {
-        width: 400px;
-        padding: 100px 0;
+      body {
+        max-width: 960px;
+        margin: 20px auto;
         background: #ccc;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      ul li {
+        display: flex;
         margin: 20px;
-        text-align: center;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+      }
+
+      ul li img {
+        margin-right: 20px;
+      }
+
+      li.fav {
+        background-color: #ff9e2d;
+        color: #fff;
       }
     </style>
   </head>
   <body>
-    <h1>hello Vue 😀</h1>
-
     <div id="app">
       <h1>Books:</h1>
       <ul>
-        <li v-for="book in books">
-          <h3>{{book.title}}</h3>
-          <p>{{book.author}}</p>
+        <li v-for="book in books" :class="{fav:book.isFav}">
+          <img :src="book.img" alt="book.title" />
+          <div>
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+          </div>
         </li>
       </ul>
     </div>
