@@ -5,18 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learning Vue</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+      .box {
+        width: 400px;
+        padding: 100px 0;
+        background: #ccc;
+        margin: 20px;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <h1>hello Vue 😀</h1>
 
     <div id="app">
-      <p v-if="showData">{{title}} - {{author}} - {{age}}</p>
-      <button @click="toggleShow">
-        <span v-if="showData">Hide Book</span>
-        <span v-else>Show Book</span>
-      </button>
+      <h1>Mouse Events ↖</h1>
 
-      <div v-show="showData">Currently showing books</div>
+      <div class="box" @mouseover="handleEvent($event, 5)">Mouse over</div>
+      <div class="box" @mouseleave="handleEvent">Mouse leave</div>
+      <div class="box" @dblclick="handleEvent">Double click</div>
+      <div class="box" @mousemove="onMouseMove">position: {{x}} {{y}}</div>
     </div>
 
     <script src="app.js"></script>
