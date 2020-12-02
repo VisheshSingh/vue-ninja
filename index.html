@@ -12,6 +12,10 @@
         background: #ccc;
       }
 
+      h1 {
+        text-align: center;
+      }
+
       ul {
         list-style-type: none;
       }
@@ -29,7 +33,7 @@
       }
 
       li.fav {
-        background-color: #ff9e2d;
+        background-color: #ff9ed2;
         color: #fff;
       }
     </style>
@@ -38,7 +42,11 @@
     <div id="app">
       <h1>Books:</h1>
       <ul>
-        <li v-for="book in books" :class="{fav:book.isFav}">
+        <li
+          v-for="book in books"
+          :class="{fav:book.isFav}"
+          @click="toggleFav(book)"
+        >
           <img :src="book.img" alt="book.title" />
           <div>
             <h3>{{book.title}}</h3>
