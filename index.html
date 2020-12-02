@@ -19,12 +19,13 @@
     <h1>hello Vue 😀</h1>
 
     <div id="app">
-      <h1>Mouse Events ↖</h1>
-
-      <div class="box" @mouseover="handleEvent($event, 5)">Mouse over</div>
-      <div class="box" @mouseleave="handleEvent">Mouse leave</div>
-      <div class="box" @dblclick="handleEvent">Double click</div>
-      <div class="box" @mousemove="onMouseMove">position: {{x}} {{y}}</div>
+      <h1>Books:</h1>
+      <ul>
+        <li v-for="book in books">
+          <h3>{{book.title}}</h3>
+          <p>{{book.author}}</p>
+        </li>
+      </ul>
     </div>
 
     <script src="app.js"></script>
