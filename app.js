@@ -1,7 +1,8 @@
 const app = Vue.createApp({
   data() {
     return {
-      showData: true,
+      showAllBooks: true,
+      showFavBooks: false,
       url: 'http://www.thenetninja.co.uk',
       books: [
         {
@@ -26,8 +27,18 @@ const app = Vue.createApp({
     };
   },
   methods: {
-    toggleFav(book) {
-      book.isFav = !book.isFav;
+    showAll() {
+      this.showAllBooks = true;
+      this.showFavBooks = false;
+    },
+    showFav() {
+      this.showAllBooks = false;
+      this.showFavBooks = true;
+    },
+  },
+  computed: {
+    filteredBooks() {
+      return this.books.filter((book) => book.isFav);
     },
   },
 });
